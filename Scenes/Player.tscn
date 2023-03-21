@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/JUMP-3.png.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/JUMP-2.png.png" type="Texture" id=3]
+[ext_resource path="res://Assets/JUMP-1.png.png" type="Texture" id=4]
+[ext_resource path="res://Assets/JUMP-4.png (1).png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "Jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "Run",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 9 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+JUMP_FORCE = -190
+MAX_SPEED = 100
+ACCELERATION = 25
+FRICTION = 25
+GRAVITY = 8
+ADDITIONAL_FALL_GRAVITY = 7
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 4 )
+animation = "Jump"
+speed_scale = 1.4
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
+shape = SubResource( 1 )
