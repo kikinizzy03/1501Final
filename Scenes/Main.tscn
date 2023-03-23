@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/Main.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Music/Wallpaper.mp3" type="AudioStream" id=2]
 
 [sub_resource type="DynamicFontData" id=1]
@@ -13,10 +13,13 @@ size = 8
 font_data = SubResource( 1 )
 
 [sub_resource type="DynamicFontData" id=3]
+antialiased = false
 font_path = "res://Assets/Fonts/m12.TTF"
 
 [sub_resource type="DynamicFont" id=4]
 size = 21
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = SubResource( 3 )
 

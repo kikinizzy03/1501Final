@@ -59,3 +59,14 @@ func apply_friction():
 
 func apply_acceleration(amount):
 	velocity.x = move_toward(velocity.x, MAX_SPEED * amount, ACCELERATION)
+
+
+func _on_Flashing_timeout():
+	$Siren.play()
+	$Camera2D/FOV.animation = "Flash"
+	$Wait.start()
+
+
+func _on_Wait_timeout():
+	$Camera2D/FOV.animation = "Default"
+	$Flashing.start()

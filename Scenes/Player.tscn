@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/JUMP-3.png.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=2]
 [ext_resource path="res://Assets/JUMP-2.png.png" type="Texture" id=3]
 [ext_resource path="res://Assets/JUMP-1.png.png" type="Texture" id=4]
 [ext_resource path="res://Assets/JUMP-4.png (1).png" type="Texture" id=5]
 [ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/FOV.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Flash.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Music/mixkit-classic-short-alarm-993.wav" type="AudioStream" id=9]
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -28,6 +30,19 @@ animations = [ {
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 9 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Flash",
+"speed": 5.0
+} ]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -52,11 +67,27 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="FOV" type="Sprite" parent="Camera2D"]
+[node name="FOV" type="AnimatedSprite" parent="Camera2D"]
 position = Vector2( 3.33786e-06, -7.86781e-06 )
 scale = Vector2( 1.05, 1.06667 )
-texture = ExtResource( 7 )
-region_rect = Rect2( 0, 0, 64, 63 )
+frames = SubResource( 5 )
+animation = "Default"
 
 [node name="HUD" parent="Camera2D" instance=ExtResource( 6 )]
 position = Vector2( -156, -80 )
+
+[node name="Flashing" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="Wait" type="Timer" parent="."]
+one_shot = true
+
+[node name="Siren" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -6.449
+pitch_scale = 0.6
+
+[connection signal="timeout" from="Flashing" to="." method="_on_Flashing_timeout"]
+[connection signal="timeout" from="Wait" to="." method="_on_Wait_timeout"]
