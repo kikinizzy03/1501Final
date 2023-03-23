@@ -1,6 +1,6 @@
 extends Node2D
 
-var curr_time = 30
+export var curr_time = 30
 
 func _ready():
 	$Message.hide()
@@ -18,3 +18,6 @@ func _on_Countdown_timeout():
 		$Countdown.stop()
 		$Message.show()
 		$Message.text = "Game Over"
+		
+		$Music.stop()
+		$GameOver.play()

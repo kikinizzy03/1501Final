@@ -502,11 +502,5 @@ tile_data = PoolIntArray( 131074, 536870914, 0, 131075, 536870913, 0, 131076, 53
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 99, 132 )
 
-[node name="Countdown" type="Timer" parent="."]
-wait_time = 20.0
-autostart = true
-
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 visible = false
-
-[connection signal="timeout" from="Countdown" to="." method="_on_Countdown_timeout"]
