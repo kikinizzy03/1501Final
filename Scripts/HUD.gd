@@ -1,5 +1,6 @@
 extends Node2D
 
+export (String, FILE, "*.tscn") var target_level = ""
 export var curr_time = 30
 
 func _ready():
@@ -20,4 +21,4 @@ func _on_Countdown_timeout():
 		$Message.text = "Game Over"
 		
 		$Music.stop()
-		$GameOver.play()
+		get_tree().change_scene(target_level)
