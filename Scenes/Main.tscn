@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Main.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+antialiased = false
+hinting = 1
+font_path = "res://Assets/Daydream.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Assets/Daydream.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 21
+font_data = SubResource( 3 )
+
+[node name="MainScreen" type="Node2D"]
+script = ExtResource( 1 )
+target_level = "res://Scenes/World.tscn"
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 112.0
+margin_top = 80.0
+margin_right = 208.0
+margin_bottom = 112.0
+custom_fonts/font = SubResource( 2 )
+text = "Start"
+
+[node name="Title" type="Label" parent="."]
+margin_left = 96.0
+margin_top = 24.0
+margin_right = 224.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 4 )
+text = "HEIST"
+align = 1
+valign = 1
+
+[connection signal="button_up" from="StartButton" to="." method="_on_StartButton_button_up"]
