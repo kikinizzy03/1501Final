@@ -53,8 +53,8 @@ shape = SubResource( 1 )
 current = true
 
 [node name="FOV" type="Sprite" parent="Camera2D"]
-position = Vector2( 3.05176e-05, -7.62939e-06 )
-scale = Vector2( 1, 0.977778 )
+position = Vector2( 3.33786e-06, -7.86781e-06 )
+scale = Vector2( 1.05, 1.06667 )
 texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 64, 63 )
 
