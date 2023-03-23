@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/JUMP-3.png.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player.gd" type="Script" id=2]
 [ext_resource path="res://Assets/JUMP-2.png.png" type="Texture" id=3]
 [ext_resource path="res://Assets/JUMP-1.png.png" type="Texture" id=4]
 [ext_resource path="res://Assets/JUMP-4.png (1).png" type="Texture" id=5]
+[ext_resource path="res://Scenes/HUD.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -27,6 +28,16 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 6, 9 )
 
+[sub_resource type="Gradient" id=5]
+colors = PoolColorArray( 1, 1, 1, 0, 0, 0, 0, 0.988235 )
+
+[sub_resource type="GradientTexture2D" id=6]
+gradient = SubResource( 5 )
+use_hdr = true
+fill = 1
+fill_from = Vector2( 0.508333, 0.4875 )
+fill_to = Vector2( 0.279167, 0.345833 )
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 JUMP_FORCE = -190
@@ -46,3 +57,15 @@ playing = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 3 )
 shape = SubResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="FOV" type="Sprite" parent="Camera2D"]
+position = Vector2( 1.52588e-05, -0.5 )
+scale = Vector2( 5, 2.76563 )
+texture = SubResource( 6 )
+region_rect = Rect2( 0, 0, 64, 63 )
+
+[node name="HUD" parent="Camera2D" instance=ExtResource( 6 )]
+position = Vector2( -156, -80 )
