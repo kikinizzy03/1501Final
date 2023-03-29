@@ -103,17 +103,17 @@ volume_db = -6.449
 pitch_scale = 0.6
 
 [node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2( 1, 1 )
 current = true
 
 [node name="FOV" type="AnimatedSprite" parent="Camera2D"]
-position = Vector2( 1, 0 )
-scale = Vector2( 1.05, 1.06667 )
+position = Vector2( -1.90735e-06, 1.90735e-06 )
+scale = Vector2( 0.65625, 0.666667 )
 frames = SubResource( 5 )
 animation = "Default"
 
 [node name="HUD" parent="Camera2D" instance=ExtResource( 6 )]
-position = Vector2( -160, -85 )
+position = Vector2( -100, -55 )
+scale = Vector2( 0.625, 0.625 )
 z_as_relative = false
 
 [connection signal="timeout" from="Flashing" to="." method="_on_Flashing_timeout"]
