@@ -25,6 +25,13 @@ font_data = SubResource( 8 )
 script = ExtResource( 2 )
 target_level = "res://Scenes/Main.tscn"
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 328.0
+margin_bottom = 184.0
+color = Color( 0.65098, 0.0627451, 0, 1 )
+
 [node name="GameOver" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 

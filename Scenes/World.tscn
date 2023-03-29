@@ -516,3 +516,4 @@ position = Vector2( 99, 132 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 visible = false
+light_mask = 7

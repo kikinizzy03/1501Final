@@ -11,7 +11,7 @@ export(int) var GRAVITY = 4
 export(int) var ADDITIONAL_FALL_GRAVITY = 4
 
 func _ready():
-	pass
+	$Camera2D/HUD.show_on_top
 
 func _physics_process(delta):
 	
