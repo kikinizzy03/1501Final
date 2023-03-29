@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/GameWin.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Music/success-fanfare-trumpets-6185.mp3" type="AudioStream" id=2]
 
 [sub_resource type="DynamicFontData" id=3]
 antialiased = false
@@ -24,6 +25,9 @@ font_data = SubResource( 5 )
 script = ExtResource( 1 )
 target_level = "res://Scenes/Main.tscn"
 
+[node name="Fanfare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
 [node name="Message" type="Label" parent="."]
 margin_left = 104.0
 margin_top = 56.0
@@ -42,3 +46,5 @@ margin_right = 200.0
 margin_bottom = 112.0
 custom_fonts/font = SubResource( 7 )
 text = "Replay"
+
+[connection signal="button_up" from="Replay" to="." method="_on_Replay_button_up"]

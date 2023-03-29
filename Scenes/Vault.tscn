@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
-[node name="Vault" type="RigidBody2D"]
+[node name="Vault" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( 2 )
 target_level = "res://Scenes/GameWin.tscn"
 
@@ -19,3 +21,4 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_Vault_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_Vault_body_shape_entered"]

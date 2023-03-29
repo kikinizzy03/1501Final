@@ -4,7 +4,7 @@ export (String, FILE, "*.tscn") var target_level = ""
 
 
 func _ready():
-	$GameOver.play()
+	$Fanfare.play()
 
 
 func _on_Replay_button_up():
