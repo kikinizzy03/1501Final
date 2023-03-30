@@ -81,7 +81,7 @@ ADDITIONAL_FALL_GRAVITY = 7
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 4 )
 animation = "Run"
-frame = 1
+frame = 2
 speed_scale = 1.1
 playing = true
 
