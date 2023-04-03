@@ -81,11 +81,10 @@ ADDITIONAL_FALL_GRAVITY = 7
 scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 4 )
 animation = "Run"
-frame = 1
 speed_scale = 1.1
-playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -2.23517e-07, 1.5 )
 scale = Vector2( 0.999999, 0.999999 )
 shape = SubResource( 1 )
@@ -110,6 +109,7 @@ current = true
 scale = Vector2( 0.65625, 0.666667 )
 frames = SubResource( 5 )
 animation = "Default"
+playing = true
 
 [node name="HUD" parent="Camera2D" instance=ExtResource( 6 )]
 position = Vector2( -100, -55 )
